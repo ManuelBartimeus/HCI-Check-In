@@ -21,3 +21,4 @@ databases:
     databaseName: church
     user: church_user
     plan: free
+    region: frankfurt

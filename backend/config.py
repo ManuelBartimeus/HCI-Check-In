@@ -17,10 +17,14 @@ class Config:
     DEBUG = os.environ.get('FLASK_DEBUG', '0') == '1'
 
     # ── Database ──────────────────────────────
-    SQLALCHEMY_DATABASE_URI = os.environ.get(
+    db_url = os.environ.get(
         'DATABASE_URL',
         'sqlite:///' + os.path.join(os.path.dirname(__file__), 'church_attendance.db')
     )
+    if db_url.startswith('postgres://'):
+        db_url = db_url.replace('postgres://', 'postgresql://', 1)
+        
+    SQLALCHEMY_DATABASE_URI = db_url
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_ENGINE_OPTIONS = {
         'pool_pre_ping': True,
