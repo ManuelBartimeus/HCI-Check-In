@@ -14,7 +14,7 @@ services:
           name: church-attendance-db
           property: connectionString
       - key: CORS_ORIGINS
-        value: "https://your-vercel-domain.vercel.app" # The user will need to update this
+        value: "https://hci-check-in.vercel.app,http://localhost:5173"
 
 databases:
   - name: church-attendance-db
