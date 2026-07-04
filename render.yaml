@@ -3,6 +3,7 @@ services:
     name: church-attendance-backend
     env: python
     region: frankfurt # You can change this in the dashboard
+    plan: free
     buildCommand: "cd backend && pip install -r requirements.txt"
     startCommand: "cd backend && gunicorn --bind 0.0.0.0:$PORT run:app"
     envVars:
@@ -19,3 +20,4 @@ databases:
   - name: church-attendance-db
     databaseName: church
     user: church_user
+    plan: free
