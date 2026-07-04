@@ -1,0 +1,278 @@
+/* ─────────────────────────────────────────────────────────
+   Global styles — Church Attendance App
+   Design: Framer dark-canvas system (DESIGN-framer.md)
+   ───────────────────────────────────────────────────────── */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Google Fonts inter variant settings ──────────────── */
+@layer base {
+  :root {
+    --font-feature-body: "cv01" 1, "cv05" 1, "cv09" 1, "cv11" 1, "ss03" 1, "ss07" 1;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: #090909;
+    color: #ffffff;
+    font-family: 'Inter Variable', 'Inter', system-ui, sans-serif;
+    font-feature-settings: var(--font-feature-body);
+    font-size: 15px;
+    line-height: 1.30;
+    letter-spacing: -0.15px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* Scrollbar — thin dark style */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #262626 #090909;
+  }
+  *::-webkit-scrollbar { width: 6px; height: 6px; }
+  *::-webkit-scrollbar-track { background: #090909; }
+  *::-webkit-scrollbar-thumb { background: #262626; border-radius: 100px; }
+  *::-webkit-scrollbar-thumb:hover { background: #333; }
+
+  /* Focus ring reset — we use custom focus styles */
+  *:focus { outline: none; }
+  *:focus-visible {
+    box-shadow: 0 0 0 1px rgba(0,153,255,0.5), 0 0 0 3px rgba(0,153,255,0.15);
+    border-radius: 6px;
+  }
+
+  /* Selection */
+  ::selection {
+    background: rgba(0, 153, 255, 0.25);
+    color: #ffffff;
+  }
+}
+
+/* ── Display typography ───────────────────────────────── */
+@layer components {
+  .font-display {
+    font-family: 'Mona Sans', 'Hubot Sans', 'Inter', sans-serif;
+    font-weight: 500;
+  }
+
+  .text-display-xxl {
+    font-family: 'Mona Sans', sans-serif;
+    font-size: clamp(48px, 10vw, 110px);
+    font-weight: 600;
+    line-height: 0.85;
+    letter-spacing: -0.05em;
+  }
+
+  .text-display-xl {
+    font-family: 'Mona Sans', sans-serif;
+    font-size: clamp(40px, 7vw, 85px);
+    font-weight: 600;
+    line-height: 0.95;
+    letter-spacing: -0.05em;
+  }
+
+  .text-display-lg {
+    font-family: 'Mona Sans', sans-serif;
+    font-size: clamp(32px, 5vw, 62px);
+    font-weight: 600;
+    line-height: 1.00;
+    letter-spacing: -0.05em;
+  }
+
+  .text-display-md {
+    font-family: 'Mona Sans', sans-serif;
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 600;
+    line-height: 1.13;
+    letter-spacing: -0.03em;
+  }
+
+  /* ── Buttons ──────────────────────────────────── */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2
+           bg-ink text-canvas font-medium text-[14px] leading-none tracking-[-0.14px]
+           px-[15px] py-[10px] rounded-pill
+           transition-all duration-150 select-none
+           hover:opacity-90 active:scale-95;
+    min-height: 44px;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2
+           bg-surface-1 text-ink font-medium text-[14px] leading-none tracking-[-0.14px]
+           px-[15px] py-[10px] rounded-pill
+           border border-hairline
+           transition-all duration-150 select-none
+           hover:bg-surface-2 active:scale-95;
+    min-height: 44px;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2
+           text-ink-muted font-medium text-[14px] leading-none tracking-[-0.14px]
+           px-[15px] py-[10px] rounded-pill
+           transition-all duration-150 select-none
+           hover:text-ink hover:bg-surface-1 active:scale-95;
+    min-height: 44px;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2
+           bg-red-500/10 text-red-400 font-medium text-[14px] leading-none tracking-[-0.14px]
+           px-[15px] py-[10px] rounded-pill
+           border border-red-500/20
+           transition-all duration-150 select-none
+           hover:bg-red-500/20 active:scale-95;
+    min-height: 44px;
+  }
+
+  .btn-icon {
+    @apply inline-flex items-center justify-center
+           bg-surface-1 text-ink-muted rounded-full
+           w-10 h-10 transition-all duration-150
+           hover:bg-surface-2 hover:text-ink active:scale-95;
+    min-width: 40px;
+  }
+
+  /* ── Cards ────────────────────────────────────── */
+  .card {
+    @apply bg-surface-1 rounded-xl border border-hairline;
+    box-shadow: 0 0 0 0.5px rgba(255,255,255,0.05), 0 4px 20px rgba(0,0,0,0.3);
+  }
+
+  .card-featured {
+    @apply bg-surface-2 rounded-xl border border-hairline;
+    box-shadow: 0 0 0 0.5px rgba(255,255,255,0.08), 0 8px 30px rgba(0,0,0,0.4);
+  }
+
+  .spotlight-card {
+    @apply rounded-2xl p-8;
+    box-shadow: 0 0 0 0.5px rgba(255,255,255,0.12), 0 8px 40px rgba(0,0,0,0.5);
+  }
+
+  .spotlight-violet {
+    background: linear-gradient(135deg, #6a4cf5 0%, #4a2fd4 100%);
+  }
+
+  .spotlight-red {
+    background: linear-gradient(135deg, #ff4d4d 0%, #b30000 100%);
+  }
+
+  .spotlight-magenta {
+    background: linear-gradient(135deg, #d44df0 0%, #9b1fc7 100%);
+  }
+
+  .spotlight-orange {
+    background: linear-gradient(135deg, #ff7a3d 0%, #e85412 100%);
+  }
+
+  /* ── Input ────────────────────────────────────── */
+  .input {
+    @apply w-full bg-surface-1 text-ink text-[15px]
+           px-[14px] py-[10px] rounded-md
+           border border-hairline
+           transition-all duration-150 placeholder:text-ink-muted;
+  }
+  .input:focus {
+    box-shadow: 0 0 0 1px rgba(0,153,255,0.5), 0 0 0 3px rgba(0,153,255,0.12);
+    border-color: rgba(0,153,255,0.4);
+  }
+
+  /* ── Skeleton loader ──────────────────────────── */
+  .skeleton {
+    @apply rounded-md;
+    background: linear-gradient(90deg, #1c1c1c 25%, #262626 50%, #1c1c1c 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
+  }
+
+  /* ── Table ────────────────────────────────────── */
+  .data-table {
+    @apply w-full text-[14px] border-collapse;
+  }
+  .data-table th {
+    @apply text-ink-muted font-medium text-left px-4 py-3
+           border-b border-hairline text-[12px] uppercase tracking-[0.06em];
+  }
+  .data-table td {
+    @apply px-4 py-3 border-b border-hairline-soft text-ink;
+  }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tbody tr {
+    @apply transition-colors duration-100 hover:bg-surface-2/60;
+  }
+
+  /* ── Badge ────────────────────────────────────── */
+  .badge {
+    @apply inline-flex items-center gap-1
+           text-[11px] font-medium tracking-[0.02em]
+           px-2 py-0.5 rounded-sm;
+  }
+  .badge-success { @apply bg-semantic-success/10 text-semantic-success; }
+  .badge-warning { @apply bg-amber-500/10 text-amber-400; }
+  .badge-error { @apply bg-red-500/10 text-red-400; }
+  .badge-info { @apply bg-accent-blue/10 text-accent-blue; }
+  .badge-neutral { @apply bg-surface-2 text-ink-muted; }
+  .badge-violet { @apply text-violet-300; background: rgba(106,76,245,0.15); }
+
+  /* ── Section ──────────────────────────────────── */
+  .section-title {
+    @apply text-display-md text-ink mb-2;
+    font-family: 'Mona Sans', sans-serif;
+  }
+  .section-sub {
+    @apply text-[15px] text-ink-muted leading-relaxed;
+  }
+
+  /* ── Divider ──────────────────────────────────── */
+  .divider { @apply border-t border-hairline; }
+  .divider-soft { @apply border-t border-hairline-soft; }
+}
+
+/* ── Utility helpers ──────────────────────────────────── */
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  .text-gradient-violet {
+    background: linear-gradient(135deg, #a78bfa, #6a4cf5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #ffd700, #ffaa00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .blur-row {
+    filter: blur(4px);
+    transition: filter 0.3s ease;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .glow-violet {
+    box-shadow: 0 0 60px rgba(106,76,245,0.25);
+  }
+
+  .glow-red {
+    box-shadow: 0 0 60px rgba(255,77,77,0.25);
+  }
+
+  /* Responsive container */
+  .container-app {
+    @apply mx-auto w-full px-4 sm:px-6 lg:px-8;
+    max-width: 1200px;
+  }
+}

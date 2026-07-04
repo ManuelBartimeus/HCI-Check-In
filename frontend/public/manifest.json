@@ -1,0 +1,12 @@
+{
+  "name": "Church Attendance App",
+  "short_name": "ChurchApp",
+  "description": "Church attendance tracking and leaderboard",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#090909",
+  "theme_color": "#090909",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
